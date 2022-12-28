@@ -1,0 +1,39 @@
+def main():
+    n = int(input("Podaj ile liczb chcesz dodać: "))
+    while (n%2)!=0 or n<=1:
+        n = int(input("Podaj ile liczb chcesz dodać: "))
+    licznik=0
+    S=[]
+    while licznik<n:
+        liczba= int(input("Podaj liczbe: "))
+        S.append(liczba)
+        licznik+=1
+    print("Mniejsza i większa liczba to: ", minmax(n, S))
+def minmax(n, S):
+    if n==2:
+        if S[0]<S[1]:
+            return S
+        elif S[1]<S[0]:
+            S[0],S[1]=S[1],S[0]
+            return S
+        else:
+            return S
+    else:
+        S1=S[0:n//2]
+        S2=S[n//2:n]
+        (min1,max1)=minmax(len(S1),S1)
+        (min2,max2)=minmax(len(S2),S2)
+        return mniejsza(min1,min2), wieksza(max1,max2)
+def mniejsza(min1, min2):
+    if min1<min2:
+        return min1
+    else:
+        return min2
+def wieksza(min1, min2):
+    if min1>min2:
+        return min1
+    else:
+        return min2
+
+if __name__ == '__main__':
+    main()
