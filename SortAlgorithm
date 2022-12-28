@@ -46,7 +46,21 @@ def quickSort(array, low, high):
         quickSort(array, low, pi - 1)
         quickSort(array, pi + 1, high)
     return array
-
+def binarySearch(tab,a):
+    poczatek= 0
+    koniec = len(tab)-1
+    znaleziono=False
+    indeks=-1
+    while poczatek<=koniec and znaleziono==False:
+        k= (poczatek+koniec)//2
+        if tab[k]==a:
+            znaleziono=True
+            indeks=k
+        elif a<tab[k]:
+            koniec=k-1
+        else:
+            poczatek = k+1
+    return indeks
 def main():
     n = int(input("Podaj ile chcesz podać liczb: "))
     i=0
@@ -63,5 +77,6 @@ def main():
     print(newtab2)
     print(newtab3)
     print(newtab4)
+    print(binarySearch(newtab4, 21))
 if __name__ == '__main__':
     main()
