@@ -1,0 +1,44 @@
+def odwroceniestringa(str):
+    liczba1 = []
+    for x in str:
+        liczba1.append(x)
+    liczba1.reverse()
+    liczba2 = ""
+    for x in liczba1:
+        liczba2 += x
+    return liczba2
+def konwerter(liczba, wybor1):
+    dic={
+        "0":0,
+        "1":1,
+        "2":2,
+        "3":3,
+        "4":4,
+        "5":5,
+        "6":6,
+        "7":7,
+        "8":8,
+        "9":9,
+        "A":10,
+        "B":11,
+        "C":12,
+        "D":13,
+        "E":14,
+        "F":15
+    }
+    liczba = odwroceniestringa(liczba)
+    wynik=0
+    pot=0
+    for x in liczba:
+        wynik+=dic[x]*pow(wybor1, pot)
+        pot+=1
+    return wynik
+def main():
+    liczba= input("Podaj liczbe: ")
+    wybor1 = int(input("podaj jaki system jest bazowy: 10-dziesietny, 2-binarny, 8-osemkowy, 16-szesnastkowy"))
+    while wybor1 not in (2,8,10,16):
+        wybor1 = int(input("podaj jaki system jest bazowy: 10-dziesietny, 2-binarny, 8-osemkowy, 16-szesnastkowy"))
+    konw=konwerter(liczba,wybor1)
+    print(konw)
+if __name__=="__main__":
+    main()
