@@ -1,0 +1,31 @@
+def reszta(r):
+     t = [50000, 20000, 10000, 5000, 2000, 1000, 500, 200, 100, 50, 20, 10, 5, 2, 1]
+     kwota = r * 100
+     i = 0
+     nom = []
+     frq = []
+     while kwota > 0:
+        ile = kwota // t[i]
+        if ile > 0:
+            nom.append(t[i])
+            frq.append(ile)
+            kwota %= t[i]
+        i += 1
+     return list(zip(nom, frq))
+def wydawanie_reszty(n):
+    nom = [50000,20000,10000,5000,2000,1000,500,200,100,50,20,10,5,2,1]
+    kwota = n*100
+    roz = []
+    while kwota>0:
+        for x in nom:
+            if kwota>=x:
+                kwota=kwota-x
+                roz.append(x)
+                break
+    print(roz)
+def main():
+    wydawanie_reszty(499)
+    x = reszta(499)
+    print(x)
+if __name__ == '__main__':
+    main()
