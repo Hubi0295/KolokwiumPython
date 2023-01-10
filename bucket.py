@@ -9,7 +9,7 @@ arr.sort()
 bucket = []
 bucket_num = 10
 for i in range(bucket_num):
-    bucket.append([i])
+    bucket.append([])
 t=0.1
 robocza=[]
 i=0
