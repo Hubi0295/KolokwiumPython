@@ -1,0 +1,26 @@
+def main():
+    ciag = input("Podaj ciag znakow: ")
+    wzorzec = input("Podaj poszukiwany wzorzec: ")
+    i=0
+    indeksy = []
+    while i<=len(ciag)-len(wzorzec):#dłuższa wersja
+        if ciag[i]==wzorzec[0]:
+            k=0
+            for x in range(i,i+len(wzorzec)):
+                if ciag[x]!=wzorzec[k]:
+                    break
+                k+=1
+            if k==len(wzorzec):
+                indeksy.append(i)
+        i+=1
+    print(indeksy)
+    indeksy=[]
+    i=0
+    while i <= len(ciag) - len(wzorzec):#krótsza wersja
+        if ciag[i:i+len(wzorzec)] in wzorzec:
+            indeksy.append(i)
+        i+=1
+    print(indeksy)
+
+if __name__ == "__main__":
+    main()
