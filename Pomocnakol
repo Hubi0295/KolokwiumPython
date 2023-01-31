@@ -1,0 +1,83 @@
+def tryMyCarNo(string):
+    if len(string)==8:
+        if string[0:3]=="K2|":
+            if string[3:7].isdigit():
+                if string[7].isalpha():
+                    if int(string[4:7])<800 and string[3]=="0":
+                        if string[7].isupper():
+                            return True
+            elif string[3:6].isdigit():
+                if string[6:8].isalpha():
+                    if string[6]!=string[7]:
+                        if int(string[3:6])<800:
+                            if string[6:8].isupper():
+                                return True
+    return False
+def regTime(string):
+    if tryMyCarNo(string):
+        if string[3:7].isdigit():
+            x=int(string[3:7])
+            print(x)
+        else:
+            x=int(string[3:6])
+            print(x)
+    else:
+        print("Niezgodne")
+        return None
+def regDate(input):
+    miesiace = {
+        1:"styczen",
+        2:"Luty",
+        3:"Marzec",
+        4:"Kwiecien",
+        5:"Maj",
+        6:"Czerwiec",
+        7:"Lipiec",
+        8:"Sierpien",
+        9:"Wrzesien",
+        10:"Pazdziernik",
+        11:"Listopad",
+        12:"Grudzien"
+    }
+    y=input//12
+    if y==0:
+        y=1
+    y=2023-y
+    x=13-input%12
+    miech=miesiace[x]
+    print(y,miech)
+    return str(y)+str(miech)
+def dreamNo(input):
+    miesiace = {
+        1:"styczen",
+        2:"Luty",
+        3:"Marzec",
+        4:"Kwiecien",
+        5:"Maj",
+        6:"Czerwiec",
+        7:"Lipiec",
+        8:"Sierpien",
+        9:"Wrzesien",
+        10:"Pazdziernik",
+        11:"Listopad",
+        12:"Grudzien"
+    }
+    if tryMyCarNo(input):
+        if input[3:7].isdigit():
+            y=ord(input[7])-ord("A")
+            x=1+y
+            print(miesiace[x])
+        else:
+            y=ord(input[7])-ord(input[6])
+            x=1+y
+            print(miesiace[x])
+        return 1
+    else:
+        return None
+def main():
+    string = input("Podaj numer do walidacji: ")
+    print(regTime(string))
+    print(regDate(5))
+    print(dreamNo(string))
+if __name__=="__main__":
+    main()
