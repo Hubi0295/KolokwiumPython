@@ -1,0 +1,21 @@
+def horner(liczba,i):
+    if i==0:
+        return liczba[i]
+    if i>0:
+        return liczba[i]+horner(liczba,i-1)*2
+    return liczba[len(liczba)-i]+horner(liczba,i-1)
+def na_binarny(n):
+    tab=[]
+    while n!=0:
+        tab.append(n%2)
+        n=n//2
+    tab.reverse()
+    return tab
+def main():
+    liczba=[1,0,1,0,0,1]
+    x=horner(liczba,len(liczba)-1)
+    print(x)
+    y=na_binarny(x)
+    print(y)
+if __name__=="__main__":
+    main()
